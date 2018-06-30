@@ -14,7 +14,6 @@ angular.module('video-player')
           contentType: 'application/json'
         }
       }).then(function successCallback(response) {
-        console.log(response.data);
         callback(response.data);
       }, function errorCallback(response) {
         console.error('Failed to fetch data', response);
