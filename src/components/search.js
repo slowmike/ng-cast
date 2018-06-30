@@ -6,6 +6,6 @@ angular.module('video-player')
       onClick: '<'
     },
     controller: function() {
-      this.result = () => {};
+      this.input = '';
     }
   });
