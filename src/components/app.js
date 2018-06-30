@@ -7,5 +7,8 @@ angular.module('video-player')
       this.selectVideo = (index) => {
         this.currentVideo = this.videos[index];
       };
+      this.searchResults = (input) => {
+
+      };
     }
   });
