@@ -11,9 +11,18 @@ angular.module('video-player')
       this.keyPress = (e) => {
         if (e.keyCode === 13) {
           this.submit();
+        } else {
+          if (this.input !== '') {
+            this.service.search(this.input, (data) => {
+              this.result(data);
+            });
+          }
         }
       };
       this.submit = () => {
+        if (this.input === '') {
+          this.input = 'cats';
+        }
         this.service.search(this.input, (data) => {
           this.result(data);
         });
