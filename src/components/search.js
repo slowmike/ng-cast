@@ -14,7 +14,7 @@ angular.module('video-player')
         }
       };
       this.submit = () => {
-        this.service.search({query: this.input, max: 5, key: window.YOUTUBE_API_KEY}, (data) => {
+        this.service.search(this.input, (data) => {
           this.result(data);
         });
         this.input = '';
