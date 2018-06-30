@@ -3,17 +3,20 @@ angular.module('video-player')
     templateUrl: 'src/templates/search.html',
     bindings: {
       result: '<',
-      onClick: '<'
+      onClick: '<',
+      service: '<'
     },
     controller: function() {
       this.input = '';
-      this.keyPress = function(e) {
+      this.keyPress = (e) => {
         if (e.keyCode === 13) {
           this.submit();
         }
       };
-      this.submit = function() {
-        this.result(this.input);
+      this.submit = () => {
+        this.service.search({query: this.input, max: 5, key: window.YOUTUBE_API_KEY}, (data) => {
+          this.result(data);
+        });
         this.input = '';
       };
     }
